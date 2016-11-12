@@ -1,3 +1,15 @@
 <h1>
   {{title}}
 </h1>
+<form action="">
+  <input type="text" name="title" [(ngModel)]="newWish.title">
+  <input type="link" name="url" [(ngModel)]="newWish.url">
+  <input type="number" name="count" [(ngModel)]="newWish.count">
+  <input type="submit" (click)="add()">
+</form>
+<table>
+  <app-wish
+    *ngFor="let wish of wishes"
+    [wish]="wish">
+  </app-wish>
+</table>
