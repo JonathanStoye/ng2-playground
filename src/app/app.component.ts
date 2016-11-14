@@ -14,6 +14,7 @@ export class AppComponent {
   private wishes: Array<Wish>
   private wishForm
   private newWish: Wish = new Wish('', '', 1)
+  private dinos: Array<any> = []
 
   constructor(public wishService: WishService) {
     this.wishes = wishService.getWishes()
@@ -22,6 +23,7 @@ export class AppComponent {
       link: new FormControl('link'),
       count: new FormControl('count'),
     })
+    this.wishService.loadWishes().subscribe((res) => { this.dinos = res.json() || {} })
   }
 
   add(): void {

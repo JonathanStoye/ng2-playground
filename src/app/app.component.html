@@ -7,9 +7,13 @@
   <input type="number" name="count" [(ngModel)]="newWish.count">
   <input type="submit" (click)="add()">
 </form>
+<app-wish
+  *ngFor="let wish of wishes"
+  [wish]="wish">
+</app-wish>
+
 <table>
-  <app-wish
-    *ngFor="let wish of wishes"
-    [wish]="wish">
-  </app-wish>
+  <tr *ngFor="let dinoRow of dinos">
+    <td *ngFor="let dino of dinoRow">{{ dino }}</td>
+  </tr>
 </table>
